@@ -3,4 +3,22 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  img {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.LogoText {
+  padding-left: 10px;
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1;
+  p {
+    font-size: 16px;
+  }
+  span {
+    font-size: 16px;
+  }
 }

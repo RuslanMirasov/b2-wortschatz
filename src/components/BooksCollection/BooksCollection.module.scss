@@ -1,0 +1,81 @@
+.BooksCollection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  .BooksCollectionItem {
+    width: calc(25% - (60px / 4));
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #eee;
+    transition: 0.3s;
+    &:hover,
+    &:focus {
+      .HoverInfo {
+        opacity: 1;
+      }
+      .BookImage {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    .BookImage {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      position: relative;
+      width: 100%;
+      background: #ccc;
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 133.333333%;
+      }
+      img {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.8s;
+        transform: scale(1);
+      }
+    }
+    .HoverInfo {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      z-index: 1;
+      opacity: 0;
+      transition: 0.3s;
+      backdrop-filter: blur(4px);
+      .IconBox {
+        svg {
+          width: 60px;
+          height: 60px;
+        }
+        span {
+          display: block;
+          width: 100%;
+          font-weight: 600;
+          color: #fff;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

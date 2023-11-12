@@ -5,7 +5,11 @@ import logo from '../../images/logo.svg';
 const Logo = () => {
   return (
     <NavLink to="/" className={css.Logo}>
-      <img width="150" src={logo} alt="logo" />
+      <img src={logo} alt="logo" />
+      <div className={css.LogoText}>
+        <p>Deutscher</p>
+        <span>Wortschatz</span>
+      </div>
     </NavLink>
   );
 };

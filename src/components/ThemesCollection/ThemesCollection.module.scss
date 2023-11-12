@@ -1,0 +1,11 @@
+.ThemesCollection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  .ThemesCollectionItem {
+    width: calc(25% - (60px / 4));
+  }
+}
