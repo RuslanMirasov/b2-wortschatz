@@ -12,7 +12,7 @@ const Game = () => {
   const currentThema = currentBook.thems.find(them => them.id === Number(urlPath[2]));
   const currentWord = currentThema.words.find(word => word.id === Number(urlPath[3]));
   const wordCount = currentThema.words.length;
-  const { id, examples, name, translates, progress } = currentWord;
+  const { id, examples, name } = currentWord;
 
   return (
     <Section>
@@ -20,7 +20,6 @@ const Game = () => {
       <h1 className={css.WordTitle}>{name}</h1>
       <div className={css.Dialog}>
         {examples.map((example, index) => {
-          const avatarNumber = index + 1;
           return (
             <div key={newKey()} className={css.DialogItem}>
               <div className={css.Avatar}>
