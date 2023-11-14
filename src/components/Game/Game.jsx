@@ -1,8 +1,9 @@
-// import css from '../Game/Game.module.scss';
+import css from '../Game/Game.module.scss';
+import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Link, useLocation } from 'react-router-dom';
 import books from '../../api/books';
-import { randomNumber } from '../../api/functions';
+import { randomNumber, newKey, markImportantWords } from '../../api/functions';
 
 const Game = () => {
   const location = useLocation();
@@ -11,14 +12,31 @@ const Game = () => {
   const currentThema = currentBook.thems.find(them => them.id === Number(urlPath[2]));
   const currentWord = currentThema.words.find(word => word.id === Number(urlPath[3]));
   const wordCount = currentThema.words.length;
+  const { id, examples, name, translates, progress } = currentWord;
+
   return (
-    <>
+    <Section>
       <BreadCrumbs location={location} books={books} />
-      <h1>{currentWord.name}</h1>
-      <Link to={`../${Number(urlPath[1])}/${Number(urlPath[2])}/${randomNumber(wordCount)}`} className="button">
-        Weiter
-      </Link>
-    </>
+      <h1 className={css.WordTitle}>{name}</h1>
+      <div className={css.Dialog}>
+        {examples.map((example, index) => {
+          const avatarNumber = index + 1;
+          return (
+            <div key={newKey()} className={css.DialogItem}>
+              <div className={css.Avatar}>
+                <img src={require(`images/dialog/1.jpg`)} alt="partner" />
+              </div>
+              <p>{markImportantWords(example, name.split(' '))}</p>
+            </div>
+          );
+        })}
+      </div>
+      <div className={css.GameButtons}>
+        <Link to={`../${currentBook.id}/${currentThema.id}/${randomNumber(wordCount, id)}`} className="button">
+          Weiter
+        </Link>
+      </div>
+    </Section>
   );
 };
 

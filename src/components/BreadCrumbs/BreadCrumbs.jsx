@@ -6,7 +6,6 @@ const BreadCrumbs = ({ location, books }) => {
   const { pathname } = location;
   const pathList = pathname.split('/');
   const urlList = [{ text: 'Bücher', url: '../' }];
-  console.log(books[Number(pathList[1]) - 1]);
   if (pathList[1]) {
     urlList.push({ text: books[Number(pathList[1]) - 1].name, url: `../${pathList[1]}` });
   }

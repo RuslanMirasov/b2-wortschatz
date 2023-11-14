@@ -25,7 +25,7 @@ body {
   overflow-y: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #222222;
-  background-color: #fdfbfb;
+  background-color: #fbfbfb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -89,11 +89,16 @@ h1 {
   align-items: center;
   align-content: center;
   border-radius: 50px;
-  padding: 10px 30px;
+  padding: 16px 30px;
   font-weight: 600;
   color: #fff;
   background: rgb(34, 150, 49);
   transition: 0.3s;
+  border: none;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 180px;
   &:hover,
   &:focus {
     background: rgb(48, 173, 64);
