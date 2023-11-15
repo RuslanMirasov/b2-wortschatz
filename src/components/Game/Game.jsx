@@ -1,9 +1,10 @@
+import React, { useEffect } from 'react';
 import css from '../Game/Game.module.scss';
 import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Link, useLocation } from 'react-router-dom';
 import books from '../../api/books';
-import { randomNumber, newKey, markImportantWords } from '../../api/functions';
+import { randomNumber, newKey, markImportantWords, avatar } from '../../api/functions';
 
 const Game = () => {
   const location = useLocation();
@@ -12,7 +13,17 @@ const Game = () => {
   const currentThema = currentBook.thems.find(them => them.id === Number(urlPath[2]));
   const currentWord = currentThema.words.find(word => word.id === Number(urlPath[3]));
   const wordCount = currentThema.words.length;
+  const avatars = avatar();
   const { id, examples, name } = currentWord;
+
+  useEffect(() => {
+    const exampleElements = document.querySelectorAll('.exampleEl');
+    exampleElements.forEach(element => {
+      const text = element.textContent;
+      const newText = markImportantWords(text, name.split(' '));
+      element.innerHTML = newText;
+    });
+  }, [name]);
 
   return (
     <Section>
@@ -23,9 +34,9 @@ const Game = () => {
           return (
             <div key={newKey()} className={css.DialogItem}>
               <div className={css.Avatar}>
-                <img src={require(`images/dialog/1.jpg`)} alt="partner" />
+                <img src={require(`images/dialog/${avatars[index]}.jpg`)} alt="partner" />
               </div>
-              <p>{markImportantWords(example, name.split(' '))}</p>
+              <p className="exampleEl">{example}</p>
             </div>
           );
         })}

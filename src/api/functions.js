@@ -32,3 +32,13 @@ export function markImportantWords(text, words) {
     .join('');
   return emphasizedText;
 }
+
+//Генерация аватарок
+export function avatar() {
+  let avatar1 = Math.floor(Math.random() * 6) + 1;
+  let avatar2 = Math.floor(Math.random() * 6) + 1;
+  while (avatar2 === avatar1) {
+    avatar2 = Math.floor(Math.random() * 6) + 1;
+  }
+  return [avatar1, avatar2];
+}
