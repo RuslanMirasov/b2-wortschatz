@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/b2-wortschatz/static/css/main.e7f0ca99.css",
-    "main.js": "/b2-wortschatz/static/js/main.9bb52b1c.js",
+    "main.js": "/b2-wortschatz/static/js/main.1bea51a6.js",
     "static/css/460.41a1dcf0.chunk.css": "/b2-wortschatz/static/css/460.41a1dcf0.chunk.css",
     "static/js/460.59ce38fd.chunk.js": "/b2-wortschatz/static/js/460.59ce38fd.chunk.js",
     "static/css/464.264c9de8.chunk.css": "/b2-wortschatz/static/css/464.264c9de8.chunk.css",
-    "static/js/464.5732fdc7.chunk.js": "/b2-wortschatz/static/js/464.5732fdc7.chunk.js",
+    "static/js/464.47d703d9.chunk.js": "/b2-wortschatz/static/js/464.47d703d9.chunk.js",
     "static/css/55.c2cd8dbc.chunk.css": "/b2-wortschatz/static/css/55.c2cd8dbc.chunk.css",
-    "static/js/55.ed8fe40d.chunk.js": "/b2-wortschatz/static/js/55.ed8fe40d.chunk.js",
-    "static/css/977.c9e88169.chunk.css": "/b2-wortschatz/static/css/977.c9e88169.chunk.css",
-    "static/js/977.6f77e01a.chunk.js": "/b2-wortschatz/static/js/977.6f77e01a.chunk.js",
+    "static/js/55.444466f8.chunk.js": "/b2-wortschatz/static/js/55.444466f8.chunk.js",
+    "static/css/977.1d1311ab.chunk.css": "/b2-wortschatz/static/css/977.1d1311ab.chunk.css",
+    "static/js/977.8291c4ba.chunk.js": "/b2-wortschatz/static/js/977.8291c4ba.chunk.js",
     "static/css/805.94334c8b.chunk.css": "/b2-wortschatz/static/css/805.94334c8b.chunk.css",
     "static/js/805.7adc1b0c.chunk.js": "/b2-wortschatz/static/js/805.7adc1b0c.chunk.js",
     "static/js/897.f873a6bc.chunk.js": "/b2-wortschatz/static/js/897.f873a6bc.chunk.js",
@@ -24,21 +24,21 @@
     "index.html": "/b2-wortschatz/index.html",
     "static/media/logo.svg": "/b2-wortschatz/static/media/logo.a98aef18aac77e3a0945cc6a653794f2.svg",
     "main.e7f0ca99.css.map": "/b2-wortschatz/static/css/main.e7f0ca99.css.map",
-    "main.9bb52b1c.js.map": "/b2-wortschatz/static/js/main.9bb52b1c.js.map",
+    "main.1bea51a6.js.map": "/b2-wortschatz/static/js/main.1bea51a6.js.map",
     "460.41a1dcf0.chunk.css.map": "/b2-wortschatz/static/css/460.41a1dcf0.chunk.css.map",
     "460.59ce38fd.chunk.js.map": "/b2-wortschatz/static/js/460.59ce38fd.chunk.js.map",
     "464.264c9de8.chunk.css.map": "/b2-wortschatz/static/css/464.264c9de8.chunk.css.map",
-    "464.5732fdc7.chunk.js.map": "/b2-wortschatz/static/js/464.5732fdc7.chunk.js.map",
+    "464.47d703d9.chunk.js.map": "/b2-wortschatz/static/js/464.47d703d9.chunk.js.map",
     "55.c2cd8dbc.chunk.css.map": "/b2-wortschatz/static/css/55.c2cd8dbc.chunk.css.map",
-    "55.ed8fe40d.chunk.js.map": "/b2-wortschatz/static/js/55.ed8fe40d.chunk.js.map",
-    "977.c9e88169.chunk.css.map": "/b2-wortschatz/static/css/977.c9e88169.chunk.css.map",
-    "977.6f77e01a.chunk.js.map": "/b2-wortschatz/static/js/977.6f77e01a.chunk.js.map",
+    "55.444466f8.chunk.js.map": "/b2-wortschatz/static/js/55.444466f8.chunk.js.map",
+    "977.1d1311ab.chunk.css.map": "/b2-wortschatz/static/css/977.1d1311ab.chunk.css.map",
+    "977.8291c4ba.chunk.js.map": "/b2-wortschatz/static/js/977.8291c4ba.chunk.js.map",
     "805.94334c8b.chunk.css.map": "/b2-wortschatz/static/css/805.94334c8b.chunk.css.map",
     "805.7adc1b0c.chunk.js.map": "/b2-wortschatz/static/js/805.7adc1b0c.chunk.js.map",
     "897.f873a6bc.chunk.js.map": "/b2-wortschatz/static/js/897.f873a6bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e7f0ca99.css",
-    "static/js/main.9bb52b1c.js"
+    "static/js/main.1bea51a6.js"
   ]
 }
