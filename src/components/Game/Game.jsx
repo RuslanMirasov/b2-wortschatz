@@ -4,7 +4,7 @@ import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Link, useLocation } from 'react-router-dom';
 import books from '../../api/books';
-import { randomNumber, newKey, markImportantWords, avatar } from '../../api/functions';
+import { randomNumber, newKey, markImportantWords, avatar, mixArray } from '../../api/functions';
 
 const Game = () => {
   const location = useLocation();
@@ -14,7 +14,23 @@ const Game = () => {
   const currentWord = currentThema.words.find(word => word.id === Number(urlPath[3]));
   const wordCount = currentThema.words.length;
   const avatars = avatar();
-  const { id, examples, name } = currentWord;
+  const { id, examples, name, translates } = currentWord;
+  const mixedTranslates = mixArray(translates);
+
+  const handleAnswerClick = event => {
+    const currentButton = event.target;
+    const isAnswerTrue = currentButton.dataset.answer;
+    currentButton.style.color = '#fff';
+    if (isAnswerTrue === 'false') {
+      currentButton.style.backgroundColor = 'red';
+    } else {
+      currentButton.style.backgroundColor = '#229631';
+    }
+    const allButtons = event.target.closest('div').querySelectorAll('button');
+    allButtons.forEach(btn => {
+      btn.style.pointerEvents = 'none';
+    });
+  };
 
   useEffect(() => {
     const exampleElements = document.querySelectorAll('.exampleEl');
@@ -38,6 +54,18 @@ const Game = () => {
               </div>
               <p className="exampleEl">{example}</p>
             </div>
+          );
+        })}
+      </div>
+
+      <div className={css.Answers}>
+        <h2>Wählen Sie eine Übersetzung:</h2>
+        {mixedTranslates.map(translate => {
+          const { name, status } = translate;
+          return (
+            <button key={newKey()} className={css.AnswerBtn} data-answer={status} onClick={handleAnswerClick}>
+              {name}
+            </button>
           );
         })}
       </div>
