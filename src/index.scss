@@ -99,6 +99,10 @@ h1 {
   font-size: 20px;
   font-weight: 600;
   min-width: 180px;
+  cursor: pointer;
+  &.button--clear {
+    background: #575757;
+  }
   &:hover,
   &:focus {
     background: rgb(48, 173, 64);

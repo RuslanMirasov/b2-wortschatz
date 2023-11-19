@@ -4,7 +4,7 @@ import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Link, useLocation } from 'react-router-dom';
 import books from '../../api/books';
-import { randomNumber, newKey, markImportantWords, avatar, mixArray } from '../../api/functions';
+import { randomNumber, newKey, markImportantWords, avatar, mixArray, getLetters } from '../../api/functions';
 
 const Game = () => {
   const location = useLocation();
@@ -16,6 +16,7 @@ const Game = () => {
   const avatars = avatar();
   const { id, examples, name, translates } = currentWord;
   const mixedTranslates = mixArray(translates);
+  const letters = getLetters(name);
 
   const handleAnswerClick = event => {
     const currentButton = event.target;
@@ -29,6 +30,34 @@ const Game = () => {
     const allButtons = event.target.closest('div').querySelectorAll('button');
     allButtons.forEach(btn => {
       btn.style.pointerEvents = 'none';
+    });
+  };
+
+  const letterClick = event => {
+    event.preventDefault();
+    const wordInput = event.target.closest('form').querySelector('input');
+    const btn = event.target;
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.2';
+    const letter = btn.innerText;
+    if (letter === '') {
+      wordInput.value += ' ';
+    } else {
+      wordInput.value += letter;
+    }
+  };
+
+  const handlerClear = event => {
+    event.preventDefault();
+    const form = event.target.closest('form');
+    form.reset();
+    const allLetterButtons = form.querySelectorAll('button');
+
+    allLetterButtons.forEach(btn => {
+      if (!btn.classList.contains('button')) {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'all';
+      }
     });
   };
 
@@ -69,6 +98,25 @@ const Game = () => {
           );
         })}
       </div>
+      <form className={css.Letters}>
+        <input type="text" name="word" className={css.WordInput} />
+        <ul className={css.Letters}>
+          {letters.map(letter => {
+            return (
+              <button key={newKey()} className={css.Letter} onClick={letterClick}>
+                {letter}
+              </button>
+            );
+          })}
+        </ul>
+        <div className={css.GameButtons}>
+          <button className="button">Проверить</button>
+          <button className="button button--clear" onClick={handlerClear}>
+            Сбросить
+          </button>
+        </div>
+      </form>
+
       <div className={css.GameButtons}>
         <Link to={`../${currentBook.id}/${currentThema.id}/${randomNumber(wordCount, id)}`} className="button">
           Weiter
