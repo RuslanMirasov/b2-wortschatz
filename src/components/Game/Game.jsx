@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import css from '../Game/Game.module.scss';
 import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
@@ -7,6 +7,8 @@ import books from '../../api/books';
 import { randomNumber, newKey, markImportantWords, avatar, mixArray, getLetters } from '../../api/functions';
 
 const Game = () => {
+  const [translate, setTranslate] = useState(false);
+
   const location = useLocation();
   const urlPath = location.pathname.split('/');
   const currentBook = books.find(book => book.id === Number(urlPath[1]));
@@ -26,6 +28,7 @@ const Game = () => {
       currentButton.style.backgroundColor = 'red';
     } else {
       currentButton.style.backgroundColor = '#229631';
+      setTranslate(true);
     }
     const allButtons = event.target.closest('div').querySelectorAll('button');
     allButtons.forEach(btn => {
@@ -73,19 +76,23 @@ const Game = () => {
   return (
     <Section>
       <BreadCrumbs location={location} books={books} />
-      <h1 className={css.WordTitle}>{name}</h1>
-      <div className={css.Dialog}>
-        {examples.map((example, index) => {
-          return (
-            <div key={newKey()} className={css.DialogItem}>
-              <div className={css.Avatar}>
-                <img src={require(`images/dialog/${avatars[index]}.jpg`)} alt="partner" />
-              </div>
-              <p className="exampleEl">{example}</p>
-            </div>
-          );
-        })}
-      </div>
+      {!translate && (
+        <>
+          <h1 className={css.WordTitle}>{name}</h1>
+          <div className={css.Dialog}>
+            {examples.map((example, index) => {
+              return (
+                <div key={newKey()} className={css.DialogItem}>
+                  <div className={css.Avatar}>
+                    <img src={require(`images/dialog/${avatars[index]}.jpg`)} alt="partner" />
+                  </div>
+                  <p className="exampleEl">{example}</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       <div className={css.Answers}>
         <h2>Wählen Sie eine Übersetzung:</h2>
@@ -98,24 +105,27 @@ const Game = () => {
           );
         })}
       </div>
-      <form className={css.Letters}>
-        <input type="text" name="word" className={css.WordInput} />
-        <ul className={css.Letters}>
-          {letters.map(letter => {
-            return (
-              <button key={newKey()} className={css.Letter} onClick={letterClick}>
-                {letter}
-              </button>
-            );
-          })}
-        </ul>
-        <div className={css.GameButtons}>
-          <button className="button">Проверить</button>
-          <button className="button button--clear" onClick={handlerClear}>
-            Сбросить
-          </button>
-        </div>
-      </form>
+
+      {translate && (
+        <form className={css.Letters}>
+          <input type="text" name="word" className={css.WordInput} />
+          <ul className={css.Letters}>
+            {letters.map(letter => {
+              return (
+                <button key={newKey()} className={css.Letter} onClick={letterClick}>
+                  {letter}
+                </button>
+              );
+            })}
+          </ul>
+          <div className={css.GameButtons}>
+            <button className="button">Проверить</button>
+            <button className="button button--clear" onClick={handlerClear}>
+              Сбросить
+            </button>
+          </div>
+        </form>
+      )}
 
       <div className={css.GameButtons}>
         <Link to={`../${currentBook.id}/${currentThema.id}/${randomNumber(wordCount, id)}`} className="button">
